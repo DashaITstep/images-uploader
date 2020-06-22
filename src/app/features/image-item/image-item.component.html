@@ -1,0 +1,14 @@
+<div class="image" [ngStyle]="{'background-image': 'url(' + image.image + ')'}" (click)="openImageDetails()">
+  <div class="delete-button" (click)="deleteImage($event)">
+    <fa name="trash"></fa>
+  </div>
+  <div class="tooltip" [ngStyle]="{'background-color': image.tooltipColor}"
+    [ngClass]="{
+      top:image.tooltipPosition === tooltipPositions.Top,
+      bottom:image.tooltipPosition === tooltipPositions.Bottom,
+      left:image.tooltipPosition === tooltipPositions.Right,
+      right:image.tooltipPosition === tooltipPositions.Left
+    }">
+    {{image.tooltipLabel}}
+  </div>
+</div>

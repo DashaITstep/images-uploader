@@ -1,0 +1,11 @@
+<div class="images-container">
+  <span *ngIf="!images.length" class="no-images-copy">
+    Your images gallery is empty =(
+  </span>
+  <ng-container *ngIf="images.length">
+    <app-image-item (imageDeleted)="deleteImage($event)" *ngFor="let image of images" [image]="image"></app-image-item>
+  </ng-container>
+  <a [routerLink]="['/image']" class="floating-button green-blink-effect">
+    <fa name="plus"></fa>
+  </a>
+</div>

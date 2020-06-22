@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: auto;
+}
+
+body {
+  color: #073b4c;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 0;
+}
+
+.floating-button {
+  position: fixed;
+  border-radius: 50%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12), 0 6px 18px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  bottom: 30px;
+  right: 30px;
+  height: 100px;
+  width: 100px;
+
+  fa {
+    font-size: 45px;
+
+    i {
+      color: white;
+      vertical-align: middle;
+    }
+  }
+
+  @media (max-width: 650px) {
+    bottom: 10px;
+    right: 15px;
+    padding: 15px;
+  }
+}
+
+.pink-blink-effect {
+  background-image: linear-gradient(to right, #EF476F, #fc6588, #ff7d9b, #ff4d76);
+  background-size: 300% 100%;
+
+  &:hover {
+    background-position: 100% 0;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+.green-blink-effect {
+  background-image: linear-gradient(to right, #06d6a0, #30dd8a, #05f5b7, #06d6a0);
+  background-size: 300% 100%;
+
+  &:hover {
+    background-position: 100% 0;
+    transition: all 0.4s ease-in-out;
+  }
+}

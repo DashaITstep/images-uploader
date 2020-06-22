@@ -1,0 +1,39 @@
+<div class="image-settings-container">
+  <h1 *ngIf="!id?.toString()">Add New Image</h1>
+  <h1 *ngIf="id?.toString()">Edit Image</h1>
+
+  <div class="flex-container">
+    <div class="image-uplader-container">
+      <input type="file" (change)="fileChangeEvent($event)" class="image-input">
+
+      <ng-container *ngIf="isImageSaved; else elseTemplate">
+        <img [src]="imageBase64" />
+      </ng-container>
+
+      <ng-template #elseTemplate>
+        <div class="image-uploader">
+          <fa name="plus"></fa>
+          <span>Click Here</span>
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="tooltip-settings-container">
+      <label for="tooltipLabel">Tooltip Label</label>
+      <input type="text" name="tooltipLabel" id="tooltipLabel" [(ngModel)]="tooltipLabel">
+
+      <label for="tooltipPosition">Tooltip Position</label>
+      <select name="tooltipPosition" [(ngModel)]="tooltipPosition">
+        <option *ngFor="let position of tooltipPositions | enumList" [label]="position.name" [value]="position.id">
+          {{position.text}}
+        </option>
+      </select>
+
+      <label for="tooltipColor">Tooltip Color</label>
+      <input type="color" name="tooltipColor" id="tooltipColor" [(ngModel)]="tooltipColor">
+    </div>
+  </div>
+  <div (click)="saveImage()" class="floating-button pink-blink-effect">
+    <fa name="save"></fa>
+  </div>
+</div>
